@@ -15,10 +15,6 @@ conf.verbose=0
 bind=list()
 i=1
 
-# Get hackable network flow informations
-# Evol:
-# Lancer une attaque pour chaques types de flux reseau
-#
 
 ################## Scapy function ##################
 
@@ -40,6 +36,11 @@ def del_host_route(addr, gateway):
 
 
 ################## Misci function ##################
+
+# Get hackable network flow informations
+# Evol:
+# Lancer une attaque pour chaques types de flux reseau
+#
 
 def get_network_informations(p):
         # Find LLMNR flow
