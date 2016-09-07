@@ -5,6 +5,7 @@
 # Description:
 #
 
+from os import system
 from scapy.all import *
 from netfilterqueue import NetfilterQueue
 
@@ -65,13 +66,10 @@ def get_network_informations(p):
 
 # Set iptable rule to use nfqueue
 
-def set_table(chain, proto):
-        if i in bind:
-                i+=1
-                bind.append(i)
-
-        table="iptables -I "+chain+" -p "+proto+" -j NFQUEUE --queue-num "+i
-        return i
+def set_table(chain, proto, bind):
+        table="/sbin/iptables -I "+chain+" -p "+proto+" -j NFQUEUE --queue-num "+i
+        system(table)
+		return bind
 
 # Bridge function to modify network flow
 
