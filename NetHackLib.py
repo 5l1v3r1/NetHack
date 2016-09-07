@@ -69,9 +69,9 @@ def set_table(chain, proto, bind):
 
 # Bridge function to modify network flow
 
-def bridge(func, chain, proto):
+def bridge(func, chain, proto, bind):
         queue=NetfilterQueue()
-        queue.bind(set_table(chain, proto), func)
+        queue.bind(set_table(chain, proto, bind), func)
         try:
                 print "[*] Attack in progress [*]\n"
                 queue.run()
