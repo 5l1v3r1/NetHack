@@ -67,6 +67,7 @@ def get_network_informations(p):
 def set_table(chain, proto):
         if i in bind:
                 i+=1
+                bind.append(i)
 
         table="iptables -I "+chain+" -p "+proto+" -j NFQUEUE --queue-num "+i
         return i
