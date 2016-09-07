@@ -12,10 +12,6 @@ from netfilterqueue import NetfilterQueue
 # Set scapy verbose to 0
 conf.verbose=0
 
-# Global
-bind=list()
-i=1
-
 
 ################## Scapy function ##################
 
