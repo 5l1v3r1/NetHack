@@ -30,13 +30,15 @@ def del_net_route(addr, gateway):
 def del_host_route(addr, gateway):
         conf.route.delt(host=addr, gw=gateway)
 
+		
 
-
-################## Misci function ##################
+################## Misc function ##################
 
 # Get hackable network flow informations
+# Usage: Run with scapy sniff function => sniff(prn=get_network_informations)
 # Evol:
-# Lancer une attaque pour chaques types de flux reseau
+# 1: Add more protocol
+# 2: Launch attack for each network flow
 #
 
 def get_network_informations(p):
@@ -47,7 +49,7 @@ def get_network_informations(p):
                 print "LLMNR Response is present! Try to use responder :)"
         # Find Spanning tree flow
         if p.haslayer("STP"):
-                print "Spanning Tree Protocol is present! Try to STP Mangling is you can :)"
+                print "Spanning Tree Protocol is present! Try to STP Mangling if you can :)"
         # Find TCP flow
         if p.haslayer("TCP"):
                 if p[TCP].dport==23:
