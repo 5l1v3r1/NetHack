@@ -51,12 +51,19 @@ def mac_to_code(addr_mac):
         return code
 
 # Get SSH Login password with ptrace for SSHRedirect function
+
 def getSSHLoginPassword():
         print "To Do"
 
 
 
 ################## Scapy function ##################
+
+# Scapy route functions
+# Evol:
+#   - Discover new route automatically
+#   - Test new route automatically
+#   - Add new route automatically
 
 def show_route():
         print conf.route
