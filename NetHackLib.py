@@ -30,6 +30,7 @@
 #
 
 from os import system
+from sys import exit
 from scapy.all import *
 import nfqueue
 import socket
@@ -42,10 +43,18 @@ conf.verbose=0
 
 ################## Utils function ##################
 
+# Mac address to Code to determine Hardware constructor
+
 def mac_to_code(addr_mac):
         tmp=addr_mac.split(":")
         code=tmp[0]+tmp[1]+tmp[2]
         return code
+
+# Get SSH Login password with ptrace for SSHRedirect function
+def getSSHLoginPassword():
+        print "To Do"
+
+
 
 ################## Scapy function ##################
 
@@ -94,7 +103,7 @@ def bridge(func, chain, proto):
                 pass
 
 def exit():
- print "exit"
+ exit(0)
 
 #+++++++++++++++++ Define Bridge Func +++++++++++++++++#
 
@@ -113,6 +122,12 @@ def QuantumInsert_redirect(i, pkt):
                 pkt.set_verdict_modified(nfqueue.NF_ACCEPT, str(p), len(p))
     else:
                 pkt.set_verdict(nfqueue.NF_ACCEPT)
+                
+                
+# Define SSH Redirection
+
+def SSHRedirect(i, pkt):
+        print "SSHRedirect"
 
 #+++++++++++++++ End define Bridge Func +++++++++++++++#
 
