@@ -170,4 +170,4 @@ def Run_QuantumInsert_redirect(evilsite):
 #################### Main Function #####################
 
 if __name__ == "__main__":
-        print "Let me talk about that"
+        print "Let me talk about that!\n1337 is my favorite number"
