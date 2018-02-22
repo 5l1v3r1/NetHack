@@ -43,6 +43,11 @@ conf.verbose=0
 
 ################## Utils function ##################
 
+# Get Computer IP Adress
+
+def getIp():
+        return socket.gethostbyname(socket.gethostname())
+
 # Mac address to Code to determine Hardware constructor
 
 def mac_to_code(addr_mac):
