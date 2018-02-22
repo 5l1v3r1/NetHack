@@ -84,6 +84,9 @@ def del_net_route(addr, gateway):
 
 def del_host_route(addr, gateway):
         conf.route.delt(host=addr, gw=gateway)
+        
+def resync_route():
+        conf.route.resync()
 
 
 ################## Bridge attack Func ##################
