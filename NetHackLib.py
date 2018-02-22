@@ -48,6 +48,10 @@ conf.verbose=0
 def getIp():
         return socket.gethostbyname(socket.gethostname())
 
+# Get Computer active device
+def getDevice():
+        return conf.iface
+
 # Mac address to Code to determine Hardware constructor
 
 def mac_to_code(addr_mac):
