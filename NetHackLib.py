@@ -34,6 +34,8 @@ from sys import exit
 from scapy.all import *
 import nfqueue
 import socket
+import fncl
+impor struct
 
 # Global variables
 evil=str()
@@ -43,14 +45,24 @@ conf.verbose=0
 
 ################## Utils function ##################
 
-# Get Computer IP Adress
+# Get IP Address by iface
+# Source: https://stackoverflow.com/questions/24196932/how-can-i-get-the-ip-address-of-eth0-in-python
+def get_ip(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+        s.fileno(),
+        0x8915,  
+        struct.pack('256s', ifname[:15])
+    )[20:24])
 
-def getIp():
-        return socket.gethostbyname(socket.gethostname())
 
 # Get Computer active device
 def getDevice():
         return conf.iface
+
+# Get active IP address
+def getIp():
+        return get_ip(getDevice())
 
 # Mac address to Code to determine Hardware constructor
 
