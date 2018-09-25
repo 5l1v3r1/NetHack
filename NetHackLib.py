@@ -193,10 +193,12 @@ def get_network_informations(p):
         # Find LLMNR flow
         if p.haslayer("LLMNRQuery") and "LLMNRQuery" not in proto:
                 print "LLMNR Query is present! Try to use responder"
-                proto.append("LLMNRQuery")
+                if "LLMNR" not in proto:
+                    proto.append("LLMNR")
         if p.haslayer("LLMNRResponse") and "LLMNRResponse" not in proto:
                 print "LLMNR Response is present! Try to use responder"
-                proto.append("LLMNRResponse")
+                if "LLMNR" not in proto:
+                    proto.append("LLMNR")
         # Find TCP flow
         if p.haslayer("TCP"):
                 if p[TCP].dport==23 and p[IP].dst not in ip:
