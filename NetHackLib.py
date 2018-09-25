@@ -35,7 +35,7 @@ from scapy.all import *
 import nfqueue
 import socket
 import fncl
-impor struct
+import struct
 
 # Global variables
 evil=str()
